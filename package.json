@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/wsdfm/node_easysns/issues"
   },
-  "homepage": "https://github.com/wsdfm/node_easysns#readme"
+  "homepage": "https://github.com/wsdfm/node_easysns#readme",
+  "dependencies": {
+    "mime": "^1.3.4"
+  }
 }
