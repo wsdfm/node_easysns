@@ -1,0 +1,20 @@
+{
+  "private":true,
+  "name": "node_easysns",
+  "version": "1.0.0",
+  "description": "一个简易的博客系统",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wsdfm/node_easysns.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wsdfm/node_easysns/issues"
+  },
+  "homepage": "https://github.com/wsdfm/node_easysns#readme"
+}
