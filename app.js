@@ -6,6 +6,8 @@ const parseUrl = require("url").parse;
 const rules = [
     {path: "/", controller: controllers.home},
     {path: "/user", controller: controllers.user},
+    {path:"/auth/register", controller: controllers.auth.register, method: "post"},
+    {path:"/auth/login", controller: controllers.auth.login, method: "post"},
     {path: /^\/static(\/.*)/, controller: controllers.static}
 ];
 
@@ -25,6 +27,12 @@ const server = http.createServer( (req, res) => {
     var urlInfo = parseUrl(req.url);
     //返回匹配的规则对象
     var rule = find(rules, rule => {
+        if(rule.method) {
+            if (rule.method.toLowerCase() !== req.method.toLowerCase()){
+                return false
+            }
+        }
+
         //如果规则的匹配条件是一个正则的话
         if (rule.path instanceof RegExp) {
             var matchResult = urlInfo.pathname.match(rule.path);

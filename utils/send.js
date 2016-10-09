@@ -21,3 +21,17 @@ exports.sendFile = (path, res) => {
         res.end(data);
     })
 }
+
+exports.redirect = (location, res, statusCode) => {
+    var statusCode = statusCode || 302;
+    res.writeHead(statusCode, {
+        location: location
+    })
+    res.end();
+}
+
+exports.sendError = (er, res, statusCode) => {
+    var statusCode = statusCode || 500;
+    res.writeHead(statusCode);
+    res.end(err.message);
+}
