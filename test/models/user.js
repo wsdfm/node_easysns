@@ -6,10 +6,15 @@ const runner = require("../runner")
 const store = new MemStore()
 const model = new UserModel(store)
 
-runner([testEmail], err => {
-    if (!err) {
-        console.log("All done")
-    }
+// runner([testEmail], err => {
+//     if (!err) {
+//         console.log("All done")
+//     }
+// })
+
+//使用mocha测试模块
+describe("UserModel", function (){
+    it("could get by Email", testEmail)
 })
 
 function testEmail (done) {

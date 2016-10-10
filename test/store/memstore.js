@@ -4,12 +4,20 @@ const MemStore = require("../../store/memstore");
 
 var memStore = new MemStore();
 
-runner([testSet, testGet, testIncr, testDel], err => {
-    if (err) {
-        console.log(`err ${err.stack}`)
-    } else {
-        console.log("All done")
-    }
+// runner([testSet, testGet, testIncr, testDel], err => {
+//     if (err) {
+//         console.log(`err ${err.stack}`)
+//     } else {
+//         console.log("All done")
+//     }
+// })
+
+//使用mocha测试模块
+describe("MemStore", function () {
+    it("could set", testSet)
+    it("could get", testGet)
+    it("could incr", testIncr)
+    it("could del", testDel)
 })
 
 function testSet (done){

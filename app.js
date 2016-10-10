@@ -1,23 +1,22 @@
-const http = require("http");
-const controllers = require("./controllers");//加载目录的时候会优先加载目录中的index文件
-const parseUrl = require("url").parse;
-
+const http = require('http')
+const controllers = require('./controllers')
+const parseUrl = require('url').parse
 
 const rules = [
-    {path: "/", controller: controllers.home},
-    {path: "/user", controller: controllers.user},
-    {path:"/auth/register", controller: controllers.auth.register, method: "post"},
-    {path:"/auth/login", controller: controllers.auth.login, method: "post"},
+    {path: '/', controller: controllers.home},
+    {path: '/user', controller: controllers.user},
+    {path: '/auth/register', controller: controllers.auth.register, method: 'post'},
+    {path: '/auth/login', controller: controllers.auth.login, method: 'post'},
     {path: /^\/static(\/.*)/, controller: controllers.static}
-];
+]
 
-function notFoundController (req, res){
+function notFoundController (req, res) {
     res.writeHead(404);
-    res.end("Not Found");
+    res.end('Not Found');
 }
 
-function find (ary, match){
-    for (let i = 0, length = ary.length; i < length; i++){
+function find (ary, match) {
+    for (let i = 0, length = ary.length; i < length; i++) {
         if (match(ary[i])) return ary[i]
     }
 }
@@ -41,7 +40,7 @@ const server = http.createServer( (req, res) => {
             }
             return matchResult;
         }
-        return rule.path == urlInfo.pathname;
+        return rule.path === urlInfo.pathname;
     })
     var controller = rule && rule.controller || notFoundController;
     controller(req, res);

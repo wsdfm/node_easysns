@@ -7,10 +7,17 @@ const store = new MemStore()
 const model = new BaseModule(store, "base:")
 const obj = {foo: "bar"}
 
-runner([testCreate, testGet, testDel], err => {
-    if (!err) {
-        console.log("All done")
-    }
+// runner([testCreate, testGet, testDel], err => {
+//     if (!err) {
+//         console.log("All done")
+//     }
+// })
+
+//使用mocha测试模块
+describe("BaseModel", function (){
+    it("should create without error", testCreate)
+    it("should get by id", testGet)
+    it("should get nothing after delete", testDel)
 })
 
 function testCreate (done){
