@@ -30,7 +30,7 @@ exports.redirect = (location, res, statusCode) => {
     res.end();
 }
 
-exports.sendError = (er, res, statusCode) => {
+exports.sendError = (err, res, statusCode) => {
     var statusCode = statusCode || 500;
     res.writeHead(statusCode);
     res.end(err.message);
